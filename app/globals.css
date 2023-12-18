@@ -3,7 +3,7 @@
 @tailwind utilities;
 :root {
   --bg-color: rgb(20, 20, 20);
-  --card-color: rgb(23, 23, 23);
+  --card-color: rgba(23, 23, 23,0.7);
 }
 *,
 *:after,
@@ -385,7 +385,7 @@ i {
   width: fit-content;
   height: 2.3em;
   margin: 0.5em;
-  background: greenyellow;
+  background: #f5f5f7;
   color: black;
   border: none;
   border-radius: 0.625em;
@@ -398,7 +398,7 @@ i {
  }
  
  .btn:hover {
-  color: greenyellow;
+  color: #f5f5f7;
  }
  
  .btn:after {

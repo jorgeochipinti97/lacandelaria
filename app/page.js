@@ -86,15 +86,15 @@ export default function Home() {
           style={{
             backgroundPosition: "center",
             backgroundImage:
-              "linear-gradient(to bottom, rgba(0,0,0,.3) 40%, black),linear-gradient(to bottom,rgba(0,0,0,0.8),rgba(0, 0, 0, 0.5)),url('/backpink.jpg')",
+              "linear-gradient(to bottom, rgba(0,0,0,.3) 40%, rgba(0,0,0,0.1) ),linear-gradient(to bottom,rgba(0,0,0,0.1),rgba(0, 0, 0, 0.1)),url('/backpink.jpg')",
             backgroundSize: "cover",
           }}
         >
           <div className="flex justify-center items-center  flex-col">
-            <p className="md:text-5xl text-slate-200 font-semibold text-2xl mt-5  ">
+            <p className="md:text-5xl text-slate-200 font-semibold text-2xl mt-5  drop-shadow-2xl" style={{textShadow:'2px 2px black'}}>
               Nuestros servicios
             </p>
-            <p className="hidden md:block text-slate-200 font-light text-md mt-2 md:mt-0  w-full   text-center">
+            <p style={{textShadow:'1px 1px black'}} className="drop-shadow-2xl hidden md:block text-slate-200 font-light text-md mt-2 md:mt-0  w-full   text-center">
               Entendemos la importancia de{" "}
               <span className=" font-semibold">
                 {" "}
@@ -102,7 +102,7 @@ export default function Home() {
               </span>
               .
             </p>
-            <p className="text-slate-200  text-md  font-semibold w-full mt-2 md:mt-0    text-center">
+            <p  style={{textShadow:'1px 1px black'}} className="drop-shadow-2xl text-slate-200  text-md  font-semibold w-full mt-2 md:mt-0    text-center">
               {" "}
               Personalizado para cada ocasión.{" "}
             </p>
@@ -166,7 +166,7 @@ export default function Home() {
                 </svg>
               }
               title={"Pileta"}
-              subtitle={"Ideal para celebraciones vibrantes."}
+              subtitle={"Una pileta serena y atractiva, perfecta para eventos relajantes."}
             />
 
             <CardComponent

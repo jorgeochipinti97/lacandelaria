@@ -119,7 +119,7 @@ export const SliderComponent = () => {
                 subtitulo={"Tu Espacio para Celebrar"}
                 imagen={"/slide3.jpg"}
                 body={
-                  " Con su diseño moderno y acogedor, es el lugar ideal para disfrutar de momentos especiales"
+                  " Con su diseño moderno y acogedor, es el lugar ideal para disfrutar de momentos especiales."
                 }
               />
             </SwiperSlide>
