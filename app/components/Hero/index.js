@@ -37,7 +37,7 @@ export const HeroComponent = () => {
             muted
             controls
             loop
-            className="rounded-xl drop-shadow-2xl  md:hidden h-5/6"
+            className="rounded-xl drop-shadow-2xl  md:hidden h-5/6 max-h-screen"
           />
         </div>
         <div className="flex  flex-col justify-center items-cente my-5 ">
