@@ -6,9 +6,16 @@ import { AnimatePresence } from "framer-motion";
 import { HeroComponent } from "./components/Hero";
 import { CardComponent } from "./components/CardComponent";
 import { SliderComponent } from "./components/Slider";
+import DatePicker from "react-datepicker";
 
+import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
+  const [startDate, setStartDate] = useState(new Date());
+  const [phone, setPhone] = useState("");
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
 
   const containerRef = useRef(null);
 
@@ -40,6 +47,23 @@ export default function Home() {
       }, 2000);
     })();
   }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const data = await axios.post("/api/query", {
+      name: name,
+      query: description,
+      date: startDate,
+      phone: phone,
+    });
+    data && setDescription("");
+    data && setPhone("");
+    data && setName("");
+    data && setStartDate(new Date());
+
+    data && alert("consulta enviada");
+  };
   return (
     <main className="">
       <main>
@@ -91,10 +115,16 @@ export default function Home() {
           }}
         >
           <div className="flex justify-center items-center  flex-col">
-            <p className="md:text-5xl text-slate-200 font-semibold text-2xl mt-5  drop-shadow-2xl" style={{textShadow:'2px 2px black'}}>
+            <p
+              className="md:text-5xl text-slate-200 font-semibold text-2xl mt-5  drop-shadow-2xl"
+              style={{ textShadow: "2px 2px black" }}
+            >
               Nuestros servicios
             </p>
-            <p style={{textShadow:'1px 1px black'}} className="drop-shadow-2xl hidden md:block text-slate-200 font-light text-md mt-2 md:mt-0  w-full   text-center">
+            <p
+              style={{ textShadow: "1px 1px black" }}
+              className="drop-shadow-2xl hidden md:block text-slate-200 font-light text-md mt-2 md:mt-0  w-full   text-center"
+            >
               Entendemos la importancia de{" "}
               <span className=" font-semibold">
                 {" "}
@@ -102,7 +132,10 @@ export default function Home() {
               </span>
               .
             </p>
-            <p  style={{textShadow:'1px 1px black'}} className="drop-shadow-2xl text-slate-200  text-md  font-semibold w-full mt-2 md:mt-0    text-center">
+            <p
+              style={{ textShadow: "1px 1px black" }}
+              className="drop-shadow-2xl text-slate-200  text-md  font-semibold w-full mt-2 md:mt-0    text-center"
+            >
               {" "}
               Personalizado para cada ocasión.{" "}
             </p>
@@ -166,7 +199,9 @@ export default function Home() {
                 </svg>
               }
               title={"Pileta"}
-              subtitle={"Una pileta serena y atractiva, perfecta para eventos relajantes."}
+              subtitle={
+                "Una pileta serena y atractiva, perfecta para eventos relajantes."
+              }
             />
 
             <CardComponent
@@ -194,33 +229,33 @@ export default function Home() {
               subtitle={"Espacios adaptables para cualquier tipo de evento."}
               icon={
                 <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="#f5f5f7"
-                stroke="#f5f5f7"
-                className="icon"
-                viewBox="0 0 1024 1024"
-                width="50"
-                height="50"
-              >
-                <g>
-                  <path d="M496 124.608L96 524.576V1024h832V556.576z"></path>
-                  <path
-                    fill="#000"
-                    d="M256 672h224v352H256zM544 640h96v96h-96zm128 0h96v96h-96zm0-128h96v96h-96zm-128 0h96v96h-96z"
-                  ></path>
-                  <path d="M544 512h96v32h-96zm128 0h96v32h-96zM544 640h96v32h-96zm128 0h96v32h-96z"></path>
-                  <path d="M496 64L96 480v96l400-400 432 432v-96z"></path>
-                  <path
-                    fill="#000"
-                    d="M1012.576 505.376L541.248 34.048l-22.624-22.624a31.968 31.968 0 00-45.248 0l-22.624 22.624L11.424 473.376a31.968 31.968 0 000 45.248l22.624 22.624a31.968 31.968 0 0045.248 0L496 124.608 944.672 573.28a31.968 31.968 0 0045.248 0l22.624-22.624a32.032 32.032 0 00.032-45.28z"
-                  ></path>
-                  <path
-                    fill="#3AAD73"
-                    d="M238.24 1024A126.656 126.656 0 00256 960a128 128 0 00-256 0c0 23.424 6.752 45.088 17.76 64h220.48zM896 832a127.744 127.744 0 00-116.224 75.04A94.848 94.848 0 00736 896a96 96 0 00-96 96c0 11.296 2.304 21.952 5.888 32h360.384A126.944 126.944 0 001024 960a128 128 0 00-128-128z"
-                  ></path>
-                  <path d="M779.776 907.04A94.848 94.848 0 00736 896a96 96 0 00-96 96c0 11.296 2.304 21.952 5.888 32H785.76A126.656 126.656 0 01768 960c0-18.944 4.384-36.768 11.776-52.96z"></path>
-                </g>
-              </svg>
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#f5f5f7"
+                  stroke="#f5f5f7"
+                  className="icon"
+                  viewBox="0 0 1024 1024"
+                  width="50"
+                  height="50"
+                >
+                  <g>
+                    <path d="M496 124.608L96 524.576V1024h832V556.576z"></path>
+                    <path
+                      fill="#000"
+                      d="M256 672h224v352H256zM544 640h96v96h-96zm128 0h96v96h-96zm0-128h96v96h-96zm-128 0h96v96h-96z"
+                    ></path>
+                    <path d="M544 512h96v32h-96zm128 0h96v32h-96zM544 640h96v32h-96zm128 0h96v32h-96z"></path>
+                    <path d="M496 64L96 480v96l400-400 432 432v-96z"></path>
+                    <path
+                      fill="#000"
+                      d="M1012.576 505.376L541.248 34.048l-22.624-22.624a31.968 31.968 0 00-45.248 0l-22.624 22.624L11.424 473.376a31.968 31.968 0 000 45.248l22.624 22.624a31.968 31.968 0 0045.248 0L496 124.608 944.672 573.28a31.968 31.968 0 0045.248 0l22.624-22.624a32.032 32.032 0 00.032-45.28z"
+                    ></path>
+                    <path
+                      fill="#3AAD73"
+                      d="M238.24 1024A126.656 126.656 0 00256 960a128 128 0 00-256 0c0 23.424 6.752 45.088 17.76 64h220.48zM896 832a127.744 127.744 0 00-116.224 75.04A94.848 94.848 0 00736 896a96 96 0 00-96 96c0 11.296 2.304 21.952 5.888 32h360.384A126.944 126.944 0 001024 960a128 128 0 00-128-128z"
+                    ></path>
+                    <path d="M779.776 907.04A94.848 94.848 0 00736 896a96 96 0 00-96 96c0 11.296 2.304 21.952 5.888 32H785.76A126.656 126.656 0 01768 960c0-18.944 4.384-36.768 11.776-52.96z"></path>
+                  </g>
+                </svg>
               }
             />
             <CardComponent
@@ -270,34 +305,65 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-2">
                 <div className="flex justify-center">
                   <div class="form-container mt-5 max-w-6/12">
-                    <form class=" ">
+                    <form class=" " onSubmit={handleSubmit}>
                       <div class="form-group">
-                        <label for="email">Email</label>
+                        <div class=" mb-5 flex flex-col">
+                          <label className="formlabel mb-1">
+                            Posible fecha del evento
+                          </label>
+                          <DatePicker
+                            className="z-[100] text-slate-200 bg-slate-800 flex justify-center text-center rounded-xl py-2 cursor-pointer font-bold"
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)}
+                          />
+                        </div>
+                        <label for="nombre">Nombre</label>
                         <input
-                          required=""
-                          name="email"
-                          id="email"
+                          minLength="2"
+                          required
+                          name="nombre"
+                          id="nombre"
+                          value={name}
                           type="text"
-                          className="px-1 py-2 mt-2 font-sans font-medium"
+                          className="px-1 py-2 mt-1 font-sans font-medium"
+                          onChange={(e) => setName(e.target.value)}
                         />
                       </div>
+                      <div class="form-group mt-2">
+                        <label for="celular">Celular</label>
+                        <input
+                          value={phone}
+                          minLength="2"
+                          required
+                          name="celular"
+                          id="celular"
+                          type="text"
+                          className="px-1 py-2 mt-1 font-sans font-medium"
+                          onChange={(e) => setPhone(e.target.value)}
+                        />
+                      </div>
+
                       <div class="form-group mt-5">
                         <label for="textarea">
                           Comentá acerca de tu evento
                         </label>
                         <textarea
-                          required=""
+                          maxlength="100"
+required
+                          value={description}
                           cols="50"
                           rows="10"
                           id="textarea"
                           name="textarea"
                           className="px-1 py-2 mt-2 font-sans font-medium"
+                          onChange={(e) => setDescription(e.target.value)}
                         >
                           {" "}
                         </textarea>
                       </div>
+
                       <button type="submit" class="btn2 px-2 text-md">
-Enviar
+                        Enviar
                       </button>
                     </form>
                   </div>
@@ -315,37 +381,39 @@ Enviar
                   ></iframe>
                 </div>
               </div>
-                
+
               <div className="flex justify-center">
-              <p className="mt-5 text-2xl font-semibold text-center">¡Hablanos!</p>
+                <p className="mt-5 text-2xl font-semibold text-center">
+                  ¡Hablanos!
+                </p>
               </div>
               <div>
                 <div class="icons">
-                <a href="#" class="icon whatsapp">
-            <svg
-              viewBox="0 0 24 24"
-              width={"48"}
-              height={"48"}
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g
-                id="SVGRepo_tracerCarrier"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></g>
-              <g id="SVGRepo_iconCarrier">
-                {" "}
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M3.50002 12C3.50002 7.30558 7.3056 3.5 12 3.5C16.6944 3.5 20.5 7.30558 20.5 12C20.5 16.6944 16.6944 20.5 12 20.5C10.3278 20.5 8.77127 20.0182 7.45798 19.1861C7.21357 19.0313 6.91408 18.9899 6.63684 19.0726L3.75769 19.9319L4.84173 17.3953C4.96986 17.0955 4.94379 16.7521 4.77187 16.4751C3.9657 15.176 3.50002 13.6439 3.50002 12ZM12 1.5C6.20103 1.5 1.50002 6.20101 1.50002 12C1.50002 13.8381 1.97316 15.5683 2.80465 17.0727L1.08047 21.107C0.928048 21.4637 0.99561 21.8763 1.25382 22.1657C1.51203 22.4552 1.91432 22.5692 2.28599 22.4582L6.78541 21.1155C8.32245 21.9965 10.1037 22.5 12 22.5C17.799 22.5 22.5 17.799 22.5 12C22.5 6.20101 17.799 1.5 12 1.5ZM14.2925 14.1824L12.9783 15.1081C12.3628 14.7575 11.6823 14.2681 10.9997 13.5855C10.2901 12.8759 9.76402 12.1433 9.37612 11.4713L10.2113 10.7624C10.5697 10.4582 10.6678 9.94533 10.447 9.53028L9.38284 7.53028C9.23954 7.26097 8.98116 7.0718 8.68115 7.01654C8.38113 6.96129 8.07231 7.046 7.84247 7.24659L7.52696 7.52195C6.76823 8.18414 6.3195 9.2723 6.69141 10.3741C7.07698 11.5163 7.89983 13.314 9.58552 14.9997C11.3991 16.8133 13.2413 17.5275 14.3186 17.8049C15.1866 18.0283 16.008 17.7288 16.5868 17.2572L17.1783 16.7752C17.4313 16.5691 17.5678 16.2524 17.544 15.9269C17.5201 15.6014 17.3389 15.308 17.0585 15.1409L15.3802 14.1409C15.0412 13.939 14.6152 13.9552 14.2925 14.1824Z"
-                  fill="white"
-                ></path>{" "}
-              </g>
-            </svg>
-          </a>
+                  <a href="#" class="icon whatsapp">
+                    <svg
+                      viewBox="0 0 24 24"
+                      width={"48"}
+                      height={"48"}
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g
+                        id="SVGRepo_tracerCarrier"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></g>
+                      <g id="SVGRepo_iconCarrier">
+                        {" "}
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M3.50002 12C3.50002 7.30558 7.3056 3.5 12 3.5C16.6944 3.5 20.5 7.30558 20.5 12C20.5 16.6944 16.6944 20.5 12 20.5C10.3278 20.5 8.77127 20.0182 7.45798 19.1861C7.21357 19.0313 6.91408 18.9899 6.63684 19.0726L3.75769 19.9319L4.84173 17.3953C4.96986 17.0955 4.94379 16.7521 4.77187 16.4751C3.9657 15.176 3.50002 13.6439 3.50002 12ZM12 1.5C6.20103 1.5 1.50002 6.20101 1.50002 12C1.50002 13.8381 1.97316 15.5683 2.80465 17.0727L1.08047 21.107C0.928048 21.4637 0.99561 21.8763 1.25382 22.1657C1.51203 22.4552 1.91432 22.5692 2.28599 22.4582L6.78541 21.1155C8.32245 21.9965 10.1037 22.5 12 22.5C17.799 22.5 22.5 17.799 22.5 12C22.5 6.20101 17.799 1.5 12 1.5ZM14.2925 14.1824L12.9783 15.1081C12.3628 14.7575 11.6823 14.2681 10.9997 13.5855C10.2901 12.8759 9.76402 12.1433 9.37612 11.4713L10.2113 10.7624C10.5697 10.4582 10.6678 9.94533 10.447 9.53028L9.38284 7.53028C9.23954 7.26097 8.98116 7.0718 8.68115 7.01654C8.38113 6.96129 8.07231 7.046 7.84247 7.24659L7.52696 7.52195C6.76823 8.18414 6.3195 9.2723 6.69141 10.3741C7.07698 11.5163 7.89983 13.314 9.58552 14.9997C11.3991 16.8133 13.2413 17.5275 14.3186 17.8049C15.1866 18.0283 16.008 17.7288 16.5868 17.2572L17.1783 16.7752C17.4313 16.5691 17.5678 16.2524 17.544 15.9269C17.5201 15.6014 17.3389 15.308 17.0585 15.1409L15.3802 14.1409C15.0412 13.939 14.6152 13.9552 14.2925 14.1824Z"
+                          fill="white"
+                        ></path>{" "}
+                      </g>
+                    </svg>
+                  </a>
                   <a href="#" class="icon instagram">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

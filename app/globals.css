@@ -472,6 +472,7 @@ i {
   color: black;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
   box-sizing: border-box;
   border-radius: 16px;
@@ -516,6 +517,11 @@ i {
   font-weight: 600;
   font-size: 12px;
 }
+.formlabel{display: block;
+
+color: #717171;
+font-weight: 600;
+font-size: 12px;}
 
 .form-container .form-group input {
   width: 70%;
