@@ -28,6 +28,7 @@ export const HeroComponent = () => {
             autoPlay
             muted
             controls
+            playsInline
             loop
             className="rounded-xl drop-shadow-2xl hidden md:block"
           />
@@ -35,6 +36,7 @@ export const HeroComponent = () => {
             src="/video-vertical.mp4"
             autoPlay
             muted
+            playsInline
             controls
             loop
             className="rounded-xl drop-shadow-2xl  md:hidden h-5/6 max-h-screen"
