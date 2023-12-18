@@ -267,7 +267,7 @@ export default function Home() {
                       </div>
                       <div class="form-group mt-5">
                         <label for="textarea">
-                          Comentame acerca de tu evento
+                          Comentá acerca de tu evento
                         </label>
                         <textarea
                           required=""
@@ -301,7 +301,7 @@ Enviar
               </div>
                 
               <div className="flex justify-center">
-              <p className="mt-5 text-2xl font-semibold text-center">¡Comunicate con nosotros!</p>
+              <p className="mt-5 text-2xl font-semibold text-center">¡Hablanos!</p>
               </div>
               <div>
                 <div class="icons">
