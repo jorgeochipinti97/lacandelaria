@@ -42,7 +42,7 @@ export const HeroComponent = () => {
             className="rounded-xl drop-shadow-2xl  md:hidden h-5/6 max-h-screen"
           />
         </div>
-        <div className="flex  flex-col justify-center items-cente my-5 ">
+        <div className="flex  flex-col justify-center items-cente my-2 md:my-5 ">
           <p
             className="text-center font-sans font-semibold"
             style={{ textShadow: "1px 1px 2px black;" }}

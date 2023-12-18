@@ -262,6 +262,7 @@ export default function Home() {
                           name="email"
                           id="email"
                           type="text"
+                          className="px-1 py-2 mt-2 font-sans font-medium"
                         />
                       </div>
                       <div class="form-group mt-5">
@@ -274,6 +275,7 @@ export default function Home() {
                           rows="10"
                           id="textarea"
                           name="textarea"
+                          className="px-1 py-2 mt-2 font-sans font-medium"
                         >
                           {" "}
                         </textarea>
