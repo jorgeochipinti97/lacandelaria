@@ -54,7 +54,7 @@ const AdmingPage = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-4">
-          {queries.map((e) => {
+          {queries.map((e,index) => {
             // Convertir la fecha a un formato más legible
             let fecha = new Date(e.date);
             let fechaFormateada = fecha.toLocaleDateString('es-ES', {
@@ -64,7 +64,7 @@ const AdmingPage = () => {
             });
 
             return (
-              <div className="flex justify-center my-1">
+              <div className="flex justify-center my-1" key={index}>
                 <div className="bg-gray-900  h-64 rounded-lg w-9/12">
                   <div className="flex p-2 gap-1">
                     <div className="">
