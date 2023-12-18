@@ -349,7 +349,7 @@ export default function Home() {
                         </label>
                         <textarea
                           maxlength="100"
-required
+                          required
                           value={description}
                           cols="50"
                           rows="10"
@@ -357,9 +357,7 @@ required
                           name="textarea"
                           className="px-1 py-2 mt-2 font-sans font-medium"
                           onChange={(e) => setDescription(e.target.value)}
-                        >
-                          {" "}
-                        </textarea>
+                        />
                       </div>
 
                       <button type="submit" class="btn2 px-2 text-md">
