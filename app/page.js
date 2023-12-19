@@ -372,10 +372,12 @@ export default function Home() {
                           onChange={(e) => setDescription(e.target.value)}
                         />
                       </div>
+<div className="flex justify-center">
 
-                      <button type="submit" class="btn2 px-2 text-md">
+                      <button type="submit" class="btn2 px-2 py-2 text-xl">
                         Enviar
                       </button>
+</div>
                     </form>
                   </div>
                 </div>
