@@ -58,7 +58,7 @@ export const SliderComponent = () => {
                 subtitulo={"Crea momentos deliciosos en nuestro asador"}
                 imagen={"/backpink.jpg"}
                 body={
-                  "   Encuentra una mezcla perfecta de naturaleza y comodidad para tu evento."
+                  " Nuestro asador es el punto de encuentro para los amantes de los sabores auténticos y las reuniones memorables."
                 }
               />
             </SwiperSlide>
@@ -68,7 +68,7 @@ export const SliderComponent = () => {
                 subtitulo={"Crea momentos deliciosos en nuestro asador"}
                 imagen={"/slide4.jpg"}
                 body={
-                  "   Encuentra una mezcla perfecta de naturaleza y comodidad para tu evento."
+                  "Nuestro asador es el punto de encuentro para los amantes de los sabores auténticos y las reuniones memorables."
                 }
               />
             </SwiperSlide>
