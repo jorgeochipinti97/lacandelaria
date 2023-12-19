@@ -10,7 +10,9 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 export default function Home() {
+  const { push } = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [startDate, setStartDate] = useState(new Date());
   const [phone, setPhone] = useState("");
@@ -85,7 +87,10 @@ export default function Home() {
             <SliderComponent />
           </div>
           <div className="flex items-center justify-center h-full ">
-            <button class="animated-button">
+            <button
+              class="animated-button"
+              onClick={() => push("https://wa.link/ecq61j")}
+            >
               <svg
                 viewBox="0 0 24 24"
                 class="arr-2"
@@ -281,7 +286,13 @@ export default function Home() {
           </div>
           <div className="flex items-center justify-center ">
             <div className="flex items-center justify-center h-full my-5 md:mt-0 ">
-              <button class="btn px-4"> Agendar visita</button>
+              <button
+                class="btn px-4"
+                onClick={() => push("https://wa.link/ecq61j")}
+              >
+                {" "}
+                Agendar visita
+              </button>
             </div>
           </div>
         </section>
@@ -312,14 +323,12 @@ export default function Home() {
                             Posible fecha del evento
                           </label>
                           <div className=" flex justify-center">
-
-                          <DatePicker
-                            className="z-[100] border-2 border-red mb-5 text-center py-1  rounded-xl  cursor-pointer font-bold"
-                            selected={startDate}
-                            onChange={(date) => setStartDate(date)}
-                            
+                            <DatePicker
+                              className="z-[100] border-2 border-red mb-5 text-center py-1  rounded-xl  cursor-pointer font-bold"
+                              selected={startDate}
+                              onChange={(date) => setStartDate(date)}
                             />
-                            </div>
+                          </div>
                         </div>
                         <label for="nombre">Nombre</label>
                         <input
@@ -391,7 +400,7 @@ export default function Home() {
               </div>
               <div>
                 <div class="icons">
-                  <a href="#" class="icon whatsapp">
+                  <a href="https://wa.link/ecq61j" class="icon whatsapp">
                     <svg
                       viewBox="0 0 24 24"
                       width={"48"}
@@ -416,7 +425,7 @@ export default function Home() {
                       </g>
                     </svg>
                   </a>
-                  <a href="#" class="icon instagram">
+                  <a href="https://www.instagram.com/lacandelaria.mg/" class="icon instagram">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
