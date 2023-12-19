@@ -501,6 +501,7 @@ i {
 .form-container .form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
 }
 
@@ -508,6 +509,8 @@ i {
   display: flex;
   flex-direction: column;
 
+  justify-content: center ;
+align-items: center;
 }
 
 .form-container .form-group label {
@@ -524,7 +527,7 @@ font-weight: 600;
 font-size: 12px;}
 
 .form-container .form-group input {
-  width: 70%;
+  width: 100%;
 
   border-radius: 8px;
   color: #000000;

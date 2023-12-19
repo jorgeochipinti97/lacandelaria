@@ -307,15 +307,19 @@ export default function Home() {
                   <div class="form-container mt-5 max-w-6/12">
                     <form class=" " onSubmit={handleSubmit}>
                       <div class="form-group">
-                        <div class=" mb-5 flex flex-col">
+                        <div class="  justify-center w-full flex flex-col items-center">
                           <label className="formlabel mb-1">
                             Posible fecha del evento
                           </label>
+                          <div className=" flex justify-center">
+
                           <DatePicker
-                            className="z-[100] text-slate-200 bg-slate-800 flex justify-center text-center rounded-xl py-2 cursor-pointer font-bold"
+                            className="z-[100] border-2 border-red mb-5 text-center py-1  rounded-xl  cursor-pointer font-bold"
                             selected={startDate}
                             onChange={(date) => setStartDate(date)}
-                          />
+                            
+                            />
+                            </div>
                         </div>
                         <label for="nombre">Nombre</label>
                         <input
