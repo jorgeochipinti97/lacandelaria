@@ -17,7 +17,7 @@ export const SlideCardComponent = ({ titulo, subtitulo, imagen, body }) => {
         <div className="flex-col h-fit ">
           <p className="font-bold text-center text-4xl">{titulo}</p>
           <p className="font-extralight text-center text-md mt-2">{subtitulo}</p>
-          <p className="font-light text-center md:text-2xl mt-2 mx-5">{body}</p>
+          <p className="font-light text-center md:text-xl mt-2 mx-5">{body}</p>
         </div>
       </div>
     </div>

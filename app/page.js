@@ -180,8 +180,8 @@ export default function Home() {
                   ></path>
                 </svg>
               }
-              title={"Cócteles Exquisitos"}
-              subtitle={"Sabores únicos en cada cóctel, arte en cada trago."}
+              title={"Barra de tragos"}
+              subtitle={"Ofrecemos una selección excepcional de tragos."}
             />
             <CardComponent
               icon={
